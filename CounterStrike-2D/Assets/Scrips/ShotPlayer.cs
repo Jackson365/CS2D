@@ -8,8 +8,8 @@ public class ShotPlayer : MonoBehaviour
     public float shotSpeed = 8f;
 
     public Transform player;
-    
     private Rigidbody2D body;
+    
     // Start is called before the first frame update
     void Start()
     {

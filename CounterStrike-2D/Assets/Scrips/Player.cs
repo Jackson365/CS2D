@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rig = GetComponent<Rigidbody2D>();  
+        rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
+        anim.SetInteger("transition", 1);
     }
     
     private void FixedUpdate()
@@ -46,15 +47,15 @@ public class Player : MonoBehaviour
         {
             GameObject Shot = Instantiate(shot, instantiateShot.position, instantiateShot.rotation);
 
-            if (transform.rotation.y == 0)
-            {
-                shot.GetComponent<ShotPlayer>();
-            }
+            //if (transform.rotation.y == 0)
+            //{
+                //shot.GetComponent<ShotPlayer>();
+            //}
 
-            if (transform.rotation.y == 180)
-            {
-                shot.GetComponent<ShotPlayer>();
-            }
+            //if (transform.rotation.y == 180)
+            //{
+                //shot.GetComponent<ShotPlayer>();
+            //}
         }
     }
 }
