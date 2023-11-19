@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 865052537}
   - component: {fileID: 865052541}
   - component: {fileID: 865052540}
+  - component: {fileID: 865052542}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -270,7 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a5056af4fa5ab44a9faf423ca3cc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 3
   instantiateShot: {fileID: 742359419}
   shot: {fileID: 8610043902643151332, guid: 15cb3e9efe59c1341afabd146a7bcfdd, type: 3}
 --- !u!212 &865052538
@@ -332,15 +333,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 865052536}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.828092, y: -0.4926625, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.99996424, w: -0.0084661655}
+  m_LocalPosition: {x: -0.03, y: 0.13, z: 0}
   m_LocalScale: {x: 0.60225, y: 0.60225, z: 0.60225}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 742359419}
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.97}
 --- !u!50 &865052540
 Rigidbody2D:
   serializedVersion: 4
@@ -353,7 +354,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -371,10 +372,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 865052536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f65012a9f1d69b440bb5b87be5c361ae, type: 3}
+  m_Script: {fileID: 11500000, guid: fa9a6e9daf6b37140aad693c301d75f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 3
+--- !u!95 &865052542
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865052536}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aabf4e44f6c3a3644bf23df207297235, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3282916344897595915
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -438,5 +458,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 865052539}
+    - target: {fileID: 8924466035735351457, guid: 15cb3e9efe59c1341afabd146a7bcfdd, type: 3}
+      propertyPath: tempLife
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15cb3e9efe59c1341afabd146a7bcfdd, type: 3}

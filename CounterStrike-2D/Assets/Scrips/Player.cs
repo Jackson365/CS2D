@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     private float horizontal;
     private float vertical;
+    
+    public static Player instance;
 
     // Start is called before the first frame update
     void Start()

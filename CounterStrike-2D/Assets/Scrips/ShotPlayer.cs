@@ -5,31 +5,34 @@ using UnityEngine;
 
 public class ShotPlayer : MonoBehaviour
 {
-    public float shotSpeed = 8f;
+    public float speed = 5f;
+    public float tempLife;
+    private Rigidbody2D rig;
 
-    public Transform player;
-    private Rigidbody2D body;
+    private Transform PlayerTransform;
     
     // Start is called before the first frame update
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
+        PlayerTransform = Player.instance.transform;
+        rig = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        Destroy();
+        AimPlayer();
+        transform.Translate(  speed * Time.deltaTime * Vector3.right);
+        if (tempLife <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    void FixedUpdate()
+    void AimPlayer()
     {
-        body.velocity = (Vector2)player.position * shotSpeed;
-        body.velocity = (Vector2)player.position * shotSpeed;
-    }
-
-    private void Destroy()
-    {
-        Destroy(gameObject,2f);
+        Vector3 ShootingDirection =  PlayerTransform.position = transform.position;
+        float AngleShot = Mathf.Atan2(ShootingDirection.y, ShootingDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, AngleShot );
     }
 }
