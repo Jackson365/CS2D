@@ -7,19 +7,25 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     private Vector2 moveInput;
     
+    private Rigidbody2D rig;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        rig = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        Move();
+    }
+
+    private void Move()
+    {
+        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        moveInput = moveInput.normalized * moveSpeed;
         
-        transform.Translate(moveInput * Time.deltaTime * moveSpeed);
-        
+        rig.MovePosition(rig.position + moveInput * Time.fixedDeltaTime);
     }
 }
