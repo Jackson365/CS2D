@@ -5,15 +5,17 @@ public class EnemyPatrulia : MonoBehaviour
     // Start is called before the first frame update
 
     public float Velocidade;
-    public Transform[] posicao;
+    public Transform posicao;
     public float TempoEspera;
 
-    private int Randomica;
+    public float xmin, xmax, ymin, ymax;
+
+    
     private float Tempo;
     
     void Start()
     {
-        Randomica = Random.Range(0, posicao.Length);
+        posicao.position = new Vector2(Random.Range(xmin, xmax), Random.Range(ymin, ymax));
         Tempo = TempoEspera;
     }
 
@@ -21,9 +23,9 @@ public class EnemyPatrulia : MonoBehaviour
     void Update()
     {
         transform.position =
-            Vector2.MoveTowards(transform.position, posicao[Randomica].position, Velocidade * Time.deltaTime);
+            Vector2.MoveTowards(transform.position, posicao.position, Velocidade * Time.deltaTime);
 
-        float _dist = Vector2.Distance(transform.position, posicao[Randomica].position);
+        float _dist = Vector2.Distance(transform.position, posicao.position);
 
         if (_dist <- .2f)
         {
@@ -32,7 +34,7 @@ public class EnemyPatrulia : MonoBehaviour
 
         if (Tempo <= 0)
         {
-            Randomica = Random.Range(0, posicao.Length);
+            posicao.position = new Vector2(Random.Range(xmin, xmax), Random.Range(ymin, ymax));
             Tempo = TempoEspera;
         }
         else
