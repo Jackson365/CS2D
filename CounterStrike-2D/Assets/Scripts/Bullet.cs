@@ -6,8 +6,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
-
+    public int damage;
+    
     private float timeDestroy = 1.0f;
+    
+    
     
     // Update is called once per frame
     void Update()
@@ -32,6 +35,12 @@ public class Bullet : MonoBehaviour
         
         if (other.gameObject.tag == "Parede")
         {   
+            Destroy(gameObject);
+        }
+        
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.GetComponent<EnemyTest>().Damage(damage);
             Destroy(gameObject);
         }
     }
