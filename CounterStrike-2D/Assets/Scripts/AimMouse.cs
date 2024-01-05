@@ -10,6 +10,8 @@ public class AimMouse : MonoBehaviour
     
     public Transform instantiateBullet;
     
+    public AudioSource tiro;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,7 @@ public class AimMouse : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Instantiate(Bullet, instantiateBullet.position, transform.rotation);
+            tiro.Play();
         }
     }
     void LookAtMouse()

@@ -14,4 +14,10 @@ public class MenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void VoltarAoinicio()
+    {
+        SceneManager.LoadScene("menuInicial");
+        Cursor.visible = true;
+    }
 }

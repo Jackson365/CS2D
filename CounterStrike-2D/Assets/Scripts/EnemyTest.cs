@@ -26,7 +26,7 @@ public class EnemyTest : MonoBehaviour
 
         if(health <= 0)
         { 
-            SceneManager.LoadScene("CenaTeste");
+            SceneManager.LoadScene("Vitoria");
             Destroy(gameObject);
         }
     }
