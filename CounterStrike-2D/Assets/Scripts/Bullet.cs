@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,15 +22,16 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
     
-    private void OnTriggerEnter2d(Collider2D other)
-    {
-        Destroy(gameObject);
-    }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
+            Destroy(gameObject);
+        }
+        
+        if (other.gameObject.tag == "Parede")
+        {   
             Destroy(gameObject);
         }
     }
